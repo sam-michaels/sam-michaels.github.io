@@ -60,8 +60,21 @@ Everything lives in `index.html`. Open it in any browser to preview locally — 
 
 - **Colours** — the `:root` block at the top of `<style>`. Change `--acc` (teal) and `--acc2` (blue) to reshade the whole site.
 - **Text** — search for the words you want to change. Sections are commented (`<!-- ===== EXPERIENCE ===== -->`).
-- **Your math courses** — find the `edu-card math` block and edit the `<span class="tag">` entries. **I guessed at these — replace them with your actual coursework.**
+- **Your math courses** — find the `edu-card math` block and edit the `<span class="tag">` entries.
 - **Resume PDF** — replace `resume.pdf` with whichever tailored version you want public. Keep the filename.
+- **Theme** — the site respects the visitor's OS preference on first load, then remembers their choice in `localStorage`. To force one, change `data-theme="dark"` on the `<html>` tag.
+
+---
+
+## Views and theming
+
+The demo has three views — **Waveform**, **Spectrogram**, **Both** (default). The chosen view and the light/dark theme both persist in `localStorage`, so a returning visitor gets what they left on.
+
+The spectrogram is a real short-time Fourier transform computed in the browser: a source-filter speech signal is synthesised at 8 kHz from the syllable timings (harmonic glottal source, three formants interpolating between vowel targets, broadband onset transients), then windowed with a 512-point Hann window at a 128-sample hop and run through a hand-written radix-2 FFT. Magnitudes go to dB, get mapped through a theme-aware colour ramp, and land in an offscreen bitmap.
+
+That costs about 200 ms, so it never blocks first paint: the page renders the waveform immediately with a `computing STFT…` placeholder, defers the transform to the next macrotask, and redraws when the data arrives.
+
+**What to point at in an interview:** the horizontal bands are formants, the fine striations are harmonics of F₀, and the syllable boundaries are the vertical discontinuities — broadband onset burst followed by a jump in formant trajectory. That is the acoustic evidence the model has to localise.
 
 ---
 
@@ -86,8 +99,8 @@ The waveform is synthesised from the syllable timings with a deterministic PRNG,
 
 ## Before you go live — checklist
 
-- [ ] **Replace the math coursework tags** with your real courses
 - [ ] Confirm "Minor" is right — the card says Minor in Mathematics. Change to "Double Major" if that's accurate
+- [ ] Click the theme toggle and check both themes on your own screen
 - [ ] Check both GitHub and LinkedIn links resolve
 - [ ] Swap `resume.pdf` for whichever version you want public
 - [ ] Open it on your phone — it's responsive, but look anyway
