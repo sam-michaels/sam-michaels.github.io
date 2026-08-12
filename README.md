@@ -6,49 +6,38 @@ Personal portfolio site. Single `index.html`, no framework, no build step.
 
 ---
 
-## Deploying to GitHub Pages
-
-### 1. Create the repository
-
-The repo name has to be **exactly** `sam-michaels.github.io` — your GitHub username, then `.github.io`. That's what makes it a user site served at the root domain. Any other name gets you a subpath URL instead.
-
-- Go to https://github.com/new
-- Repository name: `sam-michaels.github.io`
-- **Public** (GitHub Pages requires this on free accounts)
-- Don't add a README, .gitignore, or licence — this folder already has what it needs
-
-### 2. Push the files
-
-From inside this folder:
-
-```bash
-git init
-git add .
-git commit -m "Portfolio site"
-git branch -M main
-git remote add origin https://github.com/sam-michaels/sam-michaels.github.io.git
-git push -u origin main
-```
-
-### 3. Turn on Pages
-
-Repo → **Settings** → **Pages** → under "Build and deployment", set Source to **Deploy from a branch**, branch `main`, folder `/ (root)` → Save.
-
-First build takes 1–2 minutes. After that, every push to `main` redeploys automatically.
-
-### 4. Check it
-
-Visit https://sam-michaels.github.io. If you get a 404, wait another minute — the first deploy is the slow one.
-
----
-
 ## What's in here
 
 | File | Purpose |
 |------|---------|
-| `index.html` | The entire site — HTML, CSS, and JS in one file |
-| `resume.pdf` | Linked from the "Résumé (PDF)" button |
+| `index.html` | The entire site — HTML, CSS, JS, **and the full résumé** in one file |
+| `resume.pdf` | Optional. Powers the "Download PDF" button in the Résumé section |
 | `.nojekyll` | Tells GitHub to skip Jekyll processing. Don't delete it |
+| `.gitignore` | Keeps editor lock files and temp files out of the repo |
+
+**The résumé is inline.** The `#resume` section renders the whole thing as HTML, so the nav link and the footer button can never 404 — they're same-page anchors. Recruiters can read it without downloading anything, and search engines can index it.
+
+`resume.pdf` is a convenience on top of that. If you don't upload it, the page detects the missing file on load, hides the download button, and shows a one-line note instead. Nothing breaks.
+
+### "I clicked Résumé and got a 404"
+
+That was the old behaviour, when the button pointed straight at `resume.pdf`. It's fixed — the button now scrolls to the inline section.
+
+If the **Download PDF** button 404s, it means `resume.pdf` didn't make it into the repo. Check with:
+
+```bash
+git ls-files | grep resume
+```
+
+No output means it was never committed. Fix:
+
+```bash
+git add -f resume.pdf
+git commit -m "Add resume PDF"
+git push
+```
+
+The `-f` matters if a global gitignore excludes PDFs — that's the usual culprit.
 
 ---
 
