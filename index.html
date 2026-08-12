@@ -1004,6 +1004,73 @@
         margin-top: 14px;
       }
 
+      /* ---------- inline résumé ---------- */
+      .rs-h {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--acc);
+        margin: 22px 0 8px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--line);
+      }
+      .rs-p {
+        font-size: 13.6px;
+        color: var(--dim);
+        margin-bottom: 4px;
+        line-height: 1.62;
+      }
+      .rs-p b {
+        color: var(--txt);
+        font-weight: 600;
+      }
+      .rs-r {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 13px;
+        font-size: 14px;
+        color: var(--txt);
+      }
+      .rs-d {
+        font-family: var(--mono);
+        font-size: 11.5px;
+        color: var(--dim2);
+        white-space: nowrap;
+      }
+      .rs-o {
+        font-size: 12.8px;
+        color: var(--acc2);
+        font-style: italic;
+      }
+      .rs-u {
+        list-style: none;
+        margin: 7px 0 0;
+      }
+      .rs-u li {
+        font-size: 13.4px;
+        color: var(--dim);
+        padding-left: 16px;
+        position: relative;
+        margin-bottom: 6px;
+        line-height: 1.6;
+      }
+      .rs-u li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--acc);
+        font-size: 10px;
+        top: 2px;
+      }
+      .rs-u li b {
+        color: var(--txt);
+        font-weight: 600;
+      }
+
       /* ---------- footer ---------- */
       footer {
         border-top: 1px solid var(--line);
@@ -1057,6 +1124,7 @@
             <a href="#projects">Projects</a>
             <a href="#deepdives">Deep Dives</a>
             <a href="#education">Education</a>
+            <a href="#resume">Résumé</a>
             <a href="#contact">Contact</a>
           </div>
           <button
@@ -2058,10 +2126,258 @@
       </div>
     </section>
 
+    <!-- ===================== RÉSUMÉ ===================== -->
+    <section
+      id="resume"
+      style="background: var(--bg2); border-top: 1px solid var(--line)"
+    >
+      <div class="wrap">
+        <div class="reveal">
+          <div class="eyebrow">Résumé</div>
+          <h2>The whole thing, on this page</h2>
+          <p class="lede">
+            Readable without downloading anything. The PDF is below if you'd
+            rather have a copy.
+          </p>
+          <div class="cta" style="margin: 22px 0 0">
+            <a
+              class="btn primary"
+              id="pdfLink"
+              href="resume.pdf"
+              target="_blank"
+              rel="noopener"
+              download="Sam_Rodriguez_Resume.pdf"
+              >↓ Download PDF</a
+            >
+            <a class="btn" href="mailto:sam.michaels1125@gmail.com"
+              >Email me instead</a
+            >
+          </div>
+          <p
+            id="pdfWarn"
+            class="note"
+            style="display: none; color: var(--warn); font-style: normal"
+          >
+            The PDF isn't uploaded yet — everything in it is on this page.
+          </p>
+        </div>
+
+        <div
+          class="card reveal"
+          style="margin-top: 26px; padding: 30px 32px"
+        >
+          <div style="text-align: center; margin-bottom: 6px">
+            <div
+              style="
+                font-size: 22px;
+                font-weight: 800;
+                letter-spacing: -0.02em;
+              "
+            >
+              Samuel Michaels Rodriguez
+            </div>
+            <div
+              style="
+                font-family: var(--mono);
+                font-size: 12px;
+                color: var(--acc);
+                margin: 4px 0 2px;
+              "
+            >
+              Machine Learning / Software Engineer
+            </div>
+            <div style="font-size: 12.5px; color: var(--dim)">
+              London, Ontario &nbsp;·&nbsp;
+              <a href="mailto:sam.michaels1125@gmail.com"
+                >sam.michaels1125@gmail.com</a
+              >
+              &nbsp;·&nbsp; (226) 238-0701
+            </div>
+            <div style="font-size: 12.5px; color: var(--dim)">
+              sam-michaels.github.io &nbsp;·&nbsp;
+              <a
+                href="https://linkedin.com/in/sam-michaelsrodriguez"
+                target="_blank"
+                rel="noopener"
+                >linkedin.com/in/sam-michaelsrodriguez</a
+              >
+              &nbsp;·&nbsp;
+              <a
+                href="https://github.com/sam-michaels"
+                target="_blank"
+                rel="noopener"
+                >github.com/sam-michaels</a
+              >
+            </div>
+          </div>
+
+          <div class="rs-h">Professional Summary</div>
+          <p class="rs-p">
+            Bachelor of Science honours graduate in Computer Science with a
+            Mathematics minor (3.9 GPA, Dean's List) and two years of
+            professional software and ML engineering experience. Ships
+            full-stack production systems end to end: an LLM + RAG
+            phishing-detection service, a containerized document-intelligence
+            API covered by automated tests and continuous delivery, and a React
+            web app delivered to a paying client. Raised a research model's
+            detection F<sub>1</sub> from 0.42 to 0.77. Comfortable in both
+            application-development and research environments, with real
+            experience modernizing legacy code.
+          </p>
+
+          <div class="rs-h">Technical Skills</div>
+          <p class="rs-p">
+            <b>Languages:</b> Python, JavaScript/TypeScript, SQL, C, Bash,
+            HTML/CSS<br />
+            <b>ML &amp; Deep Learning:</b> PyTorch, HuggingFace Transformers,
+            scikit-learn, XGBoost, NumPy, pandas, transformer fine-tuning,
+            sequence labelling, CNNs, DQN/PPO, computer vision<br />
+            <b>Generative AI:</b> LLM APIs (Anthropic, OpenAI, Groq, Ollama),
+            RAG pipelines, LangChain, ChromaDB &amp; vector databases,
+            embeddings, prompt engineering, LLM evaluation<br />
+            <b>Full Stack:</b> FastAPI, REST API design, React, Next.js, Vite,
+            Tailwind CSS, Node.js, PostgreSQL, Redis, SQLite, schema design<br />
+            <b>Practices:</b> Test-driven development, pytest, refactoring, code
+            review, pair programming, CI/CD (GitHub Actions), agile iteration,
+            Git, Docker, Linux<br />
+            <b>Mathematics:</b> Intermediate Linear Algebra, Advanced Calculus,
+            Abstract Algebra, Discrete Mathematics, Calculus-Based Statistics
+            and Probability
+          </p>
+
+          <div class="rs-h">Professional Experience</div>
+
+          <div class="rs-r">
+            <span><b>Machine Learning Research Developer</b></span
+            ><span class="rs-d">May 2025 – Apr 2026</span>
+          </div>
+          <div class="rs-o">Western University — London, ON</div>
+          <ul class="rs-u">
+            <li>
+              Increased syllable-boundary detection accuracy from an F<sub
+                >1</sub
+              >
+              of 0.42 to 0.77 — an 83% relative gain, statistically validated at
+              p = 0.016 (Cohen's d = 2.61) — by augmenting the VG-HuBERT
+              transformer with a task-specific segmentation head in PyTorch.
+            </li>
+            <li>
+              Built a reproducible evaluation framework across 6 subjects by
+              engineering a leave-one-run-out cross-validation data pipeline in
+              Python with time-aligned ground-truth labels at 30 ms tolerance.
+            </li>
+            <li>
+              Version-controlled every training and evaluation run in Git on
+              Linux, producing publication-quality analysis and figures.
+            </li>
+          </ul>
+
+          <div class="rs-r">
+            <span
+              ><b>Software Developer (Research)</b> — Legacy System
+              Modernization</span
+            ><span class="rs-d">May 2024 – Sept 2024</span>
+          </div>
+          <div class="rs-o">Western University — London, ON</div>
+          <ul class="rs-u">
+            <li>
+              Eliminated 100% of detected memory leaks in a legacy C simulation
+              and removed extensive duplicated code by decomposing monolithic
+              logic into clean, modular functions.
+            </li>
+            <li>
+              Improved runtime efficiency and long-term maintainability by
+              restructuring and standardizing the codebase so the lab could
+              safely extend it.
+            </li>
+          </ul>
+
+          <div class="rs-r">
+            <span><b>Freelance Full-Stack Developer</b></span
+            ><span class="rs-d">2025 – 2026</span>
+          </div>
+          <div class="rs-o">Self-employed — London, ON</div>
+          <ul class="rs-u">
+            <li>
+              Shipped a production multi-page web application (SigmaK9 Training)
+              in React (Vite) with Tailwind CSS, client-side routing, and a
+              filterable catalog of 12+ products across 4 categories, deployed
+              to Vercel.
+            </li>
+            <li>
+              Delivered on schedule and to spec by gathering requirements from a
+              non-technical client and translating them into working features
+              through short, agile feedback cycles.
+            </li>
+          </ul>
+
+          <div class="rs-r">
+            <span><b>Produce Supervisor</b></span
+            ><span class="rs-d">Sept 2020 – Present</span>
+          </div>
+          <div class="rs-o">Sunripe Fresh Market — London, ON</div>
+          <ul class="rs-u">
+            <li>
+              Led and trained a 4–6 person crew across 5 years, driving
+              shelf-tag scanning errors from recurring to zero — sustained while
+              carrying a full-time honours course load.
+            </li>
+          </ul>
+
+          <div class="rs-h">Projects</div>
+          <ul class="rs-u">
+            <li>
+              <b>PhishGuard — AI Phishing Detection.</b> Cross-browser
+              WebExtension backed by a FastAPI service scoring URLs in real time
+              with explainable verdicts; heuristics, typosquatting detection,
+              WHOIS checks, VirusTotal reputation, and an LLM + RAG layer over
+              threat intel. Versioned Redis cache cut latency and API cost.
+            </li>
+            <li>
+              <b>RAG Document Intelligence API.</b> PDF ingestion → chunking →
+              embedding → semantic retrieval over ChromaDB behind a documented
+              FastAPI REST API. Containerized with Docker, gated on pytest
+              coverage.
+            </li>
+            <li>
+              <b>Personal Portfolio &amp; Research Site.</b> This site — built
+              and actively maintained with zero dependencies, including a
+              hand-written radix-2 FFT rendering a real spectrogram client-side
+              and live F<sub>1</sub> computation over the segmentation data.
+            </li>
+            <li>
+              <b>Connect Four RL Agents.</b> DQN and PPO agents with supervised
+              pretraining, a dual-path CNN, and a hybrid minimax–RL inference
+              agent. NeurIPS-format paper.
+            </li>
+            <li>
+              <b>YOLOv8 Adversarial Robustness.</b> Traffic-sign detection
+              across a 264-class dataset under four physical adversarial
+              conditions. Academic paper.
+            </li>
+          </ul>
+
+          <div class="rs-h">Education</div>
+          <div class="rs-r">
+            <span
+              ><b>Bachelor of Science (B.Sc.) Honours, Computer Science</b></span
+            ><span class="rs-d">June 2026</span>
+          </div>
+          <div class="rs-o">
+            Minor in Mathematics · Western University — London, ON
+          </div>
+          <p class="rs-p" style="margin-top: 4px">
+            3.9 GPA &nbsp;|&nbsp; Dean's List &nbsp;|&nbsp; Degree conferred
+            June 2026 &nbsp;|&nbsp; Available to start immediately
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== CONTACT ===================== -->
     <section
       id="contact"
-      style="background: var(--bg2); border-top: 1px solid var(--line)"
+      style="background: var(--bg); border-top: 1px solid var(--line)"
     >
       <div class="wrap" style="text-align: center">
         <div class="reveal">
@@ -2094,9 +2410,7 @@
               rel="noopener"
               >LinkedIn</a
             >
-            <a class="btn" href="resume.pdf" target="_blank" rel="noopener"
-              >Résumé (PDF)</a
-            >
+            <a class="btn" href="#resume">Résumé</a>
           </div>
         </div>
       </div>
@@ -2886,7 +3200,27 @@
           cv.title = t >= 0 && t <= T_END ? "t = " + t.toFixed(3) + " s" : "";
         });
 
-        /* restore last view, then paint */
+        /* ==================== PDF AVAILABILITY CHECK ====================
+         The résumé lives on the page as HTML, so the section can never 404.
+         The PDF is a convenience — if it hasn't been uploaded, hide the
+         download button rather than sending a visitor to an error page.
+         Skipped on file:// where fetch() can't probe the local disk. */
+      (function () {
+        if (!/^https?:$/.test(location.protocol)) return;
+        var link = document.getElementById("pdfLink");
+        var warn = document.getElementById("pdfWarn");
+        if (!link) return;
+        fetch("resume.pdf", { method: "HEAD" })
+          .then(function (r) {
+            if (!r.ok) throw new Error(r.status);
+          })
+          .catch(function () {
+            link.style.display = "none";
+            if (warn) warn.style.display = "block";
+          });
+      })();
+
+      /* restore last view, then paint */
         var sv = load("demoView");
         if (sv === "wave" || sv === "spec" || sv === "both") pickView(sv);
         else draw();
